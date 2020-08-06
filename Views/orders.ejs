@@ -1,0 +1,115 @@
+<%- include('includes/main'); %>
+<% if(orders.length>0) { %>
+<div class="product-list-vertical">
+
+<h2> Your Orders</h2>
+
+ <% for(let order of orders) { %>
+<div class="card">
+    <table class="table shopping-cart-wrap table-responsive-md">
+    <thead class="text-muted">
+
+        <tr class="order-heading">
+            <th scope="col" > ORDER ID  </th>
+            <th class="id" scope="col" colspan="2" ><%= order._id %></th> </tr>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col" width="120">Quantity</th>
+      <th scope="col" width="120">Price</th>
+    <!-- <th scope="col" width="200" class="text-right">Action</th>-->
+    </tr>
+    </thead>
+    <tbody>
+        <% for(let prod of order.products) { %>
+    <tr>
+        <td>
+    <figure class="media">
+        <div class="img-wrap"><img src="/<%= prod.PId.imageUrl %>" class="img-thumbnail img-sm"></div>
+        <figcaption class="media-body">
+            <h6 class="title text-truncate"><%= prod.PId.name %> </h6>
+            <dl class="param param-inline small">
+              <dt>id:  </dt>
+              <dd><%= prod.PId._id %> </dd>
+            </dl>
+            <dl class="param param-inline small">
+                <dt>description :  </dt>
+                <dd><%= prod.PId.description %> </dd>
+              </dl>
+        </figcaption>
+    </figure> 
+        </td>
+        <td> 
+           <dt> <%= prod.quantity %> </dt>
+        </td>
+        <td> 
+            <div class="price-wrap"> 
+                <var class="price">AUD <%= prod.PId.price %></var> 
+                <small class="text-muted">(<%= prod.PId.price %> each)</small> 
+            </div> <!-- price-wrap .// -->
+        </td>
+        <!--
+        <td class="text-right"> 
+        <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a> 
+        <a href="" class="btn btn-outline-danger"> × Remove</a>
+        </td>
+    -->
+    </tr>
+    <% } %>
+
+    <tr class="Total">
+        <td> Grand Total</td>
+        <td></td>
+        <td class="actual-price"> AUD <%=order.Total %></td>
+
+    </tr>
+   
+    </tbody>
+    </table>
+    </div> <!-- card.// -->
+    <% } %>
+    
+
+</div>
+<% }  else {%>
+
+    <div class="container"><p style="font-weight: bold; font-size: 30px; text-align: center; padding-top: 30%;"> You have no Orders</p></div>
+
+
+<% } %>
+
+    
+    <script>
+        /*
+        $(".btn-danger").click(function(event){
+    console.log("inside the function");
+   var id=$(this).find("input").val();
+   console.log(id);
+    $.post('http://localhost:3000/deleteCart',
+    { id: id}, // data to be submit
+       function(data, status, jqXHR) {// success callback
+              //  $('p').append('status: ' + status + ', data: ' + data);
+              window.location.replace("http://localhost:3000/cart");
+        });
+
+
+    
+
+  });
+
+
+  $("#order").click(function(event){
+      console.log("inside order");
+    $.post('http://localhost:3000/order',function(data,status,jqXHR){
+        alert("Your order is added");
+        window.location.reload();
+    });
+  });
+  
+  
+ // post('http://localhost:3000/order');
+ */
+    </script>
+
+    
+</body>
+</html>

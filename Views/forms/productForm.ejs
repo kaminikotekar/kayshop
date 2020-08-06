@@ -1,0 +1,152 @@
+<%- include('../includes/main'); %>
+  <!--  
+  <div class="container">
+    <div class="row" >
+    <div class="col-sm-8" >
+    
+    <form  method="POST" enctype="multipart/form-data" action= <%=edit==false?"/addProduct":"/editProduct" %> >
+      <h3> Product details</h3>
+      <div class="form-group">
+        <% if(edit) { %>
+          <input type="hidden" name="id" value= <%= product._id %> >
+
+       <% } %>
+        <label for="ProductName">Product Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Enter Product" value=<% edit==true?product.name:"" %> >
+      <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->  
+ <!--    </div>
+      <div class="form-group">
+        <label for="decription">Description</label>
+        <textarea class="form-control" name="description" rows="5" id="comment" > <% if(edit){ %> <%=product.description %> <% } %></textarea>
+      </div> 
+      <!--<div class="form-group">
+        <label for="file">Select an Image</label>
+        <input type="file" class="form-control" name="image" rows="5" id="comment"></input>
+      </div> -->
+      
+       <!-- <input type="url" class="form-control" name="url" id="urlName" placeholder="Enter url" <% if(edit){ %> value= <%=product.imageUrl %> <% } %>> -->
+      <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->  
+<!--     <div class="form-group">
+        <label for="imageurl">Upload Image</label>
+
+        <input type="file" name ="image">
+      </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Price</label>
+          <input type="number" step="0.001" class="form-control" name="price" id="Price" placeholder="Enter price" <% if(edit){ %> value= <%=product.price %> <% } %>>
+          
+        </div>
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <!--<div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>-->
+<!--    <button type="submit" class="btn btn-primary"><% if(edit) { %> Save changes <% } else { %> Add <%}%> </button>
+      </form>
+      </div>
+      <div class="col-sm-4">
+        <!--<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/users-2.png">-->
+<!--      </div>
+      </div>
+    </div>
+  -->
+
+
+
+  <div class="container contact">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="overlay2">
+        <div class="contact-info" style="align-items: center !important;">
+          <img src="https://icons.iconarchive.com/icons/yohproject/crayon-cute/128/box-full-icon.png" alt="image"/>
+          <h2 style="color: #184C66;"><% if(edit) { %> Edit your product <% } else { %> Upload your product <% } %></h2>
+          <h4 style="color: #184C66;"><% if(edit) { %> Easy to edit just do the changes and submit.<% } else { %> get best deals on uploading<% } %></h4>
+          
+        </div>
+      </div></div>
+      <div class="col-md-9">
+        <div class="contact-form">
+          <form method="POST" enctype="multipart/form-data" action= <%=edit==false?"/addProduct":"/editProduct" %>>
+            <% if(edit) { %>
+              <input type="hidden" name="id" value= <%= product._id %> >
+    
+           <% } %>
+           <% if(error){ %>
+           <div class="alert alert-danger">
+             <p style="margin: 0; font-size: 15px; color: brown;"> <%= error %> </p>
+           </div>
+          <% } %>
+
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="fname">Name:</label>
+            <div class="col-sm-10">          
+            <input type="text" class="form-control" id="name" placeholder="Enter Name of Product" name="name" value= <% if(edit){ %> '<%= product.name %>' <% } else { %> <%=data.name %> <% } %>  >
+            </div>
+          </div>
+        <!--  <div class="form-group">
+            <label class="control-label col-sm-2" for="lname">Last Name:</label>
+            <div class="col-sm-10">          
+            <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname">
+            </div>
+          </div>-->
+        
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="comment">Description:</label>
+            <div class="col-sm-10">
+            <textarea class="form-control" rows="5" id="description" name ="description"><% if(edit){ %><%=product.description %><% } else{ %><%= data.description %><% } %></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Price:</label>
+            <div class="col-sm-10">
+            <input type="number" step="0.001"  class="form-control" id="price" placeholder="Enter valid price" name="price" <% if(edit){ %> value= <%=product.price %> <% } else { %> value= <%=data.price %><% } %> >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Select an image:</label>
+            <div class="col-sm-10">
+            <input type="file"  class="form-control" id="file" placeholder="Enter valid price" name="image">
+            </div>
+          </div>
+          <input type="hidden" id="csrf" name ='_csrf' value="<%= csrf %>" >
+          <div class="form-group submit">        
+            <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    
+  </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

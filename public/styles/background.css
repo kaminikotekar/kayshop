@@ -1,0 +1,23 @@
+html, body {
+  
+   
+    background-image: url('/images/background.jpg') !important;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }
+   
+    .overlay {
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        overflow: auto;
+        top: 0px;
+        left: 0px;
+        background: rgba(0, 0, 0, 0.6); /*can be anything, of course*/
+    }

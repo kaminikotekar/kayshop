@@ -1,0 +1,92 @@
+<%- include('includes/main'); %>
+<% if(cart.items.length>0){ %>
+<ul class="product-list-vertical">
+    <% for(let product of cart.items) { %>
+
+        <li>
+
+            <a href="#" class="product-photo">
+                <img src="/<%= product.PId.imageUrl %>" height="160" alt="iPhone 6" />
+            </a>
+
+            <div class="product-details">
+              <!--  <a href="#" class="product-compare">compare</a>-->
+
+                <h2><a href="#"><%= product.PId.name %></a></h2>
+
+                <div class="product-rating">
+                    <div>
+                        <span class="product-stars" style="width: 60px" >
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </span>
+                    </div>
+
+                    <span><a href="#">82 reviews</a></span>
+                </div>
+
+
+                <p class="product-description"><%= product.PId.description %> </p>
+                <h5> Quantity:  <%=product.quantity %></p>
+                <button>Buy Now!</button>
+                <button type ="button" class="btn-danger">
+                    <input type="hidden" value="<%= product.PId._id %>" >
+                    <input id= "csrf" type="hidden" value="<%= csrf %>">
+                    Remove</button>
+                <p class="product-price">$<%= product.PId.price %></p>
+            </div>
+
+        </li>
+
+        <% } %>
+      <li class="total">
+          <div class="in_total">
+          <p style="font-size: 18px !important;">Items:<%= cart.items.length %></p>
+          <p> Total = $<%= cart.Total %></p>
+          <button id = "order" >Proceed to Pay</button>
+        </div>
+      </li>  
+
+    </ul>
+
+    <% } else {%>
+        <div class="container"><p style="font-weight: bold; font-size: 30px; text-align: center; padding-top: 30%;"> Your cart is empty</p></div>
+         <% }%>
+
+
+
+
+    
+    <script>
+        $(".btn-danger").click(function(event){
+    console.log("inside the function");
+   var id=$(this).find("input").val();
+   var csrf = $(this).find("#csrf").val();
+
+   console.log(id);
+    $.post('http://localhost:3000/deleteCart',
+    { id: id,_csrf:csrf }, // data to be submit
+       function(data, status, jqXHR) {// success callback
+              //  $('p').append('status: ' + status + ', data: ' + data);
+              window.location.replace("http://localhost:3000/cart");
+        });
+
+
+    
+
+  });
+
+
+  $("#order").click(function(event){
+      console.log("inside order");
+      var csrf =  $('.btn-danger').find("#csrf").val();
+    $.post('http://localhost:3000/order',{_csrf:csrf},function(data,status,jqXHR){
+        alert("Your order is added");
+        window.location.reload();
+    });
+  });
+  
+  
+ // post('http://localhost:3000/order');
+    </script>
+</body>
+</html>

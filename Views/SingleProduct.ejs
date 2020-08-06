@@ -1,0 +1,81 @@
+
+
+<%- include('includes/main'); %>
+<section class="section mt-5">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6">
+            <div>
+               <img alt="Web Studio" class="img-fluid" src="/<%= product.imageUrl %>" />
+            </div>
+         </div>
+         <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
+            <div class="prod-details">
+               <h1><%= product.name %></h1>
+               <article>
+                  <%= product.description %>
+               </article>
+               <h5> PRICE: <%= product.price %></h5>
+               <% if(IsLoggedIn & !hidden) { %>
+               <div class="edit-delete">
+                  <button class="btn btn-success btn-block" id="edit" >Edit
+                     <input type="hidden" id="id" value="<%= product._id %>">
+                  </button>
+                  <button class="btn btn-danger btn-block" id="delete">
+                     Delete
+                     <input type="hidden" value="<%= csrf %>" name="_csrf">
+                  </button>
+               </div>
+               <% } %>
+
+
+           <!--    <div class="container">
+                  <div class="row">
+                     <div class="col-xs-6">
+                        <button class="btn btn-success btn-block" id="edit" >Edit
+                           <input type="hidden" id="id" value="<%= product._id %>">
+                        </button>
+                     </div>
+                     <div class="col-xs-6 offset-2" style="float: right;">
+                        <button class="btn btn-danger btn-block" id="delete">Delete</button>
+                     </div>
+                  </div>
+               </div>-->
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<script>
+   $("#edit").click(function(event){
+    console.log("inside the function");
+      var id= $("#id").val();
+      console.log(id);
+    window.location.replace("http://localhost:3000/addProduct/"+id+"?edit=true");
+   //  $.get('http://localhost:3000/products',function(responsetext){
+      //  alert(responsetext);   
+   //  });
+
+});
+
+
+$("#delete").click(function(event){
+
+   var id= $("#id").val();
+   var csrf = $(this).find("input").val();
+   console.log(csrf);
+$.post('http://localhost:3000/delete',   // url
+       { id: id, _csrf:csrf}, // data to be submit
+       function(data, status, jqXHR) {// success callback
+              //  $('p').append('status: ' + status + ', data: ' + data);
+              window.location.replace("http://localhost:3000/products");
+        });
+
+      });
+
+
+</script>
+</body>
+</html>
+
+<!--onclick="getEdit('/addProduct/<%= product.id%>?edit=true')"-->

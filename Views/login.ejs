@@ -1,0 +1,56 @@
+<%- include('includes/main.ejs'); %>
+
+<div class="main-block">
+    <h1>Login</h1>
+    <% if(error) { %>
+
+      <div class="alert alert-danger" style="text-align: center;" role="alert">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <% if(result) { %>
+
+      <div class="alert alert-success" style="text-align: center;" role="alert">
+        <%= result %>
+      </div>
+    <% } %>
+    <form action="/login", method="POST">
+      
+   <!--   <div class="account-type">
+        <input type="radio" value="none" id="radioOne" name="account" checked/>
+        <label for="radioOne" class="radio">Personal</label>
+        <input type="radio" value="none" id="radioTwo" name="account" />
+        <label for="radioTwo" class="radio">Company</label>
+      </div>
+  -->
+      
+      
+      <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
+      <input type="text" name="email" id="name" placeholder="Email" required value="<%= data.email %>"/>
+    
+      <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
+      <input type="password" name="password" id="name" placeholder="Password" value="<%=data.password %>" required/>
+
+      <input type="hidden" value="<%=csrf %>" name="_csrf">     
+    <!--  <div class="gender">
+        <input type="radio" value="none" id="male" name="gender" checked/>
+        <label for="male" class="radio">Male</label>
+        <input type="radio" value="none" id="female" name="gender" />
+        <label for="female" class="radio">Female</label>
+      </div>
+
+  -->
+     
+      <div class="btn-block">
+        
+        <button type="submit" href="/">Login</button>
+      </div>
+      <div style="text-align: center; margin: 5px;">
+        <a href="/resetPassword"> Forgot Password</a>
+        </divx>
+    </form>
+  </div>
+</div>
+</body>
+</html>

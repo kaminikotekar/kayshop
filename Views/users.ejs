@@ -1,0 +1,19 @@
+<%- include('includes/main'); %>
+
+<ul id="myUL">
+    <% if(users.length>0){ %>
+        <h2 class="header"> Following are the registered users</h2>
+            <% for(let i=0; i< users.length; i++){ %>
+
+            <li><%= users[i] %></li>
+            <% } %> 
+
+  <% } else{ %>
+    <h2 class="header">No Registered users</h2>
+    <% } %>
+
+
+  
+</ul>
+</body>
+</html>

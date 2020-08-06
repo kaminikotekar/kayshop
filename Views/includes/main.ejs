@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=page%></title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/index.css">
+    <script  rel ="script"src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <% if(url=='/'){ %>
+      <link rel="stylesheet" href="styles/background.css">
+
+      <% } %>
+    <% if(url =='/users'){ %>
+    <link rel="stylesheet" href="styles/user.css">
+    <% } %>
+    <% if(url=='/products'){ %>
+    <link rel="stylesheet" href="styles/card.css">
+    <script  rel ="script"src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <% } %>
+
+    <% if(url=='/addProduct'){ %>
+      <link rel="stylesheet" href="/styles/AddProduct.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <% } %>
+
+    <% if(url== '/singleP'){ %>
+      <link rel="stylesheet" href="/styles/singleProduct.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Lacquer&display=swap" rel="stylesheet"> 
+      <script  rel ="script"src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script rel="script" src="/js/get_post.js"></script>
+      <% } %>
+
+    <% if(url== '/cart'){ %>
+      <link rel="stylesheet" href="styles/product-list-vertical.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script  rel ="script"src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <% } %>
+
+    <% if(url== '/orders'){ %>
+      <link rel="stylesheet" href="/styles/order.css" type="text/css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script  rel ="script"src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <% } %>
+
+    <% if(url=='/login'){ %>
+      <link rel="stylesheet" href="styles/index.css">
+      <link rel="stylesheet" href="styles/background.css">
+
+
+      <% } %>
+
+
+  </head>
+  <body>
+  
+    <div class="overlay">
+  
+    
+
+    <div class="topnav">
+      <% if(!IsLoggedIn){ %>
+      <a href="/" class=<%= url=='/'?'active':''%> >Registration</a>
+      <% } %>
+     <!-- <a href="/users" class=<%= url=='/users'?'active':''%> >List of users</a>-->
+      <a href="/products" class=<%= url=='/products'?'active':''%> >Products</a>
+      <% if(IsLoggedIn) { %>
+      <a href="/addProduct" class=<%= url=='/addProduct'?'active':''%> >Add product</a>
+      <a href="/cart" class=<%= url=='/cart'?'active':''%> >Cart</a>
+      <a href="/orders" class=<%= url=='/orders'?'active':''%> >Orders</a>
+      <a id ="logout">Logout <input type="hidden" id="csrf" value = <%=csrf%>> </a>
+      
+
+      <% } else {%>
+
+      <a style="float: right;" href="/login" class=<%= url=='/login'?'active':''%>  >Login</a>
+  
+      <% } %>
+    </div>
+    <script>
+      $("#logout").click(function(){
+        var csrf= $(this).find("input").val();
+        console.log(csrf);
+        console.log("inside function");
+        $.post('http://localhost:3000/logout', {_csrf:csrf}  ,// url
+       function(data, status, jqXHR) {// success callback
+              //  $('p').append('status: ' + status + ', data: ' + data);
+              window.location.replace("http://localhost:3000");
+        });
+      });
+
+
+
+    </script>

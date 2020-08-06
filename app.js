@@ -29,7 +29,7 @@ const helmet = require('helmet');
 
 
 app = express();
-const MONGODB_URI= 'mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@shop-bm6k7.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority'
+const MONGODB_URI= `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@shop-bm6k7.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`
 const store = new mongodbstore({
     uri: MONGODB_URI,
     collection: 'sessions'
@@ -143,7 +143,7 @@ mongoose.connect(MONGODB_URI,{ useNewUrlParser: true ,useUnifiedTopology: true})
 
     app.listen(process.env.PORT || 3000);
 
-    User.findOne().then(user=>{
+  /*  User.findOne().then(user=>{
         if(!user){
             const  user =new User({name:"kamini",
         username:"kkamini",
@@ -154,7 +154,7 @@ mongoose.connect(MONGODB_URI,{ useNewUrlParser: true ,useUnifiedTopology: true})
          
         user.save();
         }
-    }).catch(err=>console.log(err));
+    }).catch(err=>console.log(err));*/
 
     console.log("connection successful");   
 })

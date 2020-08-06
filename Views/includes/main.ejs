@@ -88,10 +88,10 @@
         var csrf= $(this).find("input").val();
         console.log(csrf);
         console.log("inside function");
-        $.post('http://localhost:3000/logout', {_csrf:csrf}  ,// url
+        $.post('https://kay-shop.herokuapp.com/logout', {_csrf:csrf}  ,// url
        function(data, status, jqXHR) {// success callback
               //  $('p').append('status: ' + status + ', data: ' + data);
-              window.location.replace("http://localhost:3000");
+              window.location.replace("https://kay-shop.herokuapp.com");
         });
       });
 

@@ -1,14 +1,14 @@
 {
-  "name": "assignment3_templating",
+  "name": "kayshop",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "engines": {
     "node": "12.18.2"
   },
-  "scripts": {
+"scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
+    "start": "NODE_ENV=production MONGO_USER=kaminiNode MONGO_PASSWORD=IHwtVlfQ1Qjz0viX MONGO_DATABASE=shop node app.js",
     "start-server":"node app.js",
     "start-dev" : "nodemon app.js"
   },

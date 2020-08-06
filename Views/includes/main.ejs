@@ -84,6 +84,8 @@
       <% } %>
     </div>
     <script>
+      var $;
+      $ = require('jquery');
       $("#logout").click(function(){
         var csrf= $(this).find("input").val();
         console.log(csrf);

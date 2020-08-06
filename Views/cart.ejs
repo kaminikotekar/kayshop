@@ -63,11 +63,11 @@
    var csrf = $(this).find("#csrf").val();
 
    console.log(id);
-    $.post('http://localhost:3000/deleteCart',
+    $.post('https://kay-shop.herokuapp.com/deleteCart',
     { id: id,_csrf:csrf }, // data to be submit
        function(data, status, jqXHR) {// success callback
               //  $('p').append('status: ' + status + ', data: ' + data);
-              window.location.replace("http://localhost:3000/cart");
+              window.location.replace("https://kay-shop.herokuapp.com/cart");
         });
 
 
@@ -79,7 +79,7 @@
   $("#order").click(function(event){
       console.log("inside order");
       var csrf =  $('.btn-danger').find("#csrf").val();
-    $.post('http://localhost:3000/order',{_csrf:csrf},function(data,status,jqXHR){
+    $.post('https://kay-shop.herokuapp.com/order',{_csrf:csrf},function(data,status,jqXHR){
         alert("Your order is added");
         window.location.reload();
     });

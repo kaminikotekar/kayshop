@@ -51,7 +51,7 @@
     console.log("inside the function");
       var id= $("#id").val();
       console.log(id);
-    window.location.replace("http://localhost:3000/addProduct/"+id+"?edit=true");
+    window.location.replace("https://kay-shop.herokuapp.com/addProduct/"+id+"?edit=true");
    //  $.get('http://localhost:3000/products',function(responsetext){
       //  alert(responsetext);   
    //  });
@@ -64,11 +64,11 @@ $("#delete").click(function(event){
    var id= $("#id").val();
    var csrf = $(this).find("input").val();
    console.log(csrf);
-$.post('http://localhost:3000/delete',   // url
+$.post('https://kay-shop.herokuapp.com/delete',   // url
        { id: id, _csrf:csrf}, // data to be submit
        function(data, status, jqXHR) {// success callback
               //  $('p').append('status: ' + status + ', data: ' + data);
-              window.location.replace("http://localhost:3000/products");
+              window.location.replace("https://kay-shop.herokuapp.com/products");
         });
 
       });

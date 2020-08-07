@@ -123,3 +123,4 @@
 ::ffff:127.0.0.1 - - [07/Aug/2020:09:55:30 +0000] "GET /images/uploads/2020-08-02T14:17:15.374Z_sq.jpg HTTP/1.1" 304 - "http://localhost:3000/products" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
 ::ffff:127.0.0.1 - - [07/Aug/2020:09:55:30 +0000] "GET /images/uploads/2020-08-03T08:36:13.092Z_idea.jpeg HTTP/1.1" 304 - "http://localhost:3000/products" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
 ::ffff:127.0.0.1 - - [07/Aug/2020:09:55:30 +0000] "GET /images/uploads/2020-08-03T08:32:22.098Z_when.jpeg HTTP/1.1" 304 - "http://localhost:3000/products" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+::ffff:127.0.0.1 - - [07/Aug/2020:09:58:26 +0000] "GET /addProduct HTTP/1.1" - - "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"

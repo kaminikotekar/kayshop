@@ -25,7 +25,6 @@ const { db } = require('./models/user');
 const compression = require('compression');
 const morgan = require('morgan');
 const fs = require('fs');
-const helmet = require('helmet');
 
 
 app = express();
@@ -61,7 +60,6 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname,'access.log'),
 app.set('view engine','ejs');
 app.set('views','Views');
 
-app.use(helmet());
 app.use(compression());
 app.use(morgan('combined',{ stream: accessLogStream}));
 app.use('/lib/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));

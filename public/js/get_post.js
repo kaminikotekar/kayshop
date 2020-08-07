@@ -23,3 +23,14 @@ $("#edit").click(function(event){
 
 });
 */
+
+$("#logout").click(function(){
+    var csrf= $(this).find("input").val();
+    console.log(csrf);
+    console.log("inside function");
+    $.post('https://kay-shop.herokuapp.com/logout', {_csrf:csrf}  ,// url
+   function(data, status, jqXHR) {// success callback
+          //  $('p').append('status: ' + status + ', data: ' + data);
+          window.location.replace("https://kay-shop.herokuapp.com");
+    });
+  });

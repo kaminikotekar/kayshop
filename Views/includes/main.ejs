@@ -2,6 +2,8 @@
 <html>
   <head>
     <title><%=page%></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -81,20 +83,16 @@
   
       <% } %>
     </div>
-    <script>
-      var $;
-      $ = require('jquery');
-      $("#logout").click(function(){
-        var csrf= $(this).find("input").val();
-        console.log(csrf);
-        console.log("inside function");
-        $.post('https://kay-shop.herokuapp.com/logout', {_csrf:csrf}  ,// url
-       function(data, status, jqXHR) {// success callback
-              //  $('p').append('status: ' + status + ', data: ' + data);
-              window.location.replace("https://kay-shop.herokuapp.com");
-        });
-      });
+   <script>
 
-
-
-    </script>
+$("#logout").click(function(){
+    var csrf= $(this).find("input").val();
+    console.log(csrf);
+    console.log("inside function");
+    $.post('https://kay-shop.herokuapp.com/logout', {_csrf:csrf}  ,// url
+   function(data, status, jqXHR) {// success callback
+          //  $('p').append('status: ' + status + ', data: ' + data);
+          window.location.replace("https://kay-shop.herokuapp.com");
+    });
+  });
+   </script>

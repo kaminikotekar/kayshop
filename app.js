@@ -64,6 +64,7 @@ app.set('views','Views');
 app.use(helmet());
 app.use(compression());
 app.use(morgan('combined',{ stream: accessLogStream}));
+app.use('/lib/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 app.use(express.static(path.join(__dirname,'public')));
 app.use('images/uploads',express.static(path.join(__dirname,'public/images/uploads')));
 

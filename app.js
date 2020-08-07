@@ -28,7 +28,7 @@ const fs = require('fs');
 
 
 app = express();
-const MONGODB_URI= `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@shop-bm6k7.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`
+const MONGODB_URI= `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@shop-bm6k7.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`;
 const store = new mongodbstore({
     uri: MONGODB_URI,
     collection: 'sessions'

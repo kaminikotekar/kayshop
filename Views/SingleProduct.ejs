@@ -2,15 +2,15 @@
 
 <%- include('includes/main'); %>
 <section class="section mt-5">
-   <div class="container">
+   <div class="container" style="padding:0 !important;">
       <div class="row">
-         <div class="col-md-6">
+         <div class="col-md-6" style="padding:0 !important">
             <div>
-               <img alt="Web Studio" class="img-fluid" src="/<%= product.imageUrl %>" />
+               <img alt="Web Studio" style="margin: 0 !important;" class="img-fluid" src="/<%= product.imageUrl %>" />
             </div>
          </div>
-         <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
-            <div class="prod-details">
+         <div class="col-md-6  ml-auto d-flex align-items-center" style="margin: 0 !important; background-color: white; text-align: center; vertical-align: center; padding: 0; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
+          <div class="prod-details">
                <h1><%= product.name %></h1>
                <article>
                   <%= product.description %>
@@ -29,7 +29,7 @@
                <% } %>
 
 
-           <!--    <div class="container">
+           <!--    <div class="container" col-lg-5 mt-4 mt-md-0>
                   <div class="row">
                      <div class="col-xs-6">
                         <button class="btn btn-success btn-block" id="edit" >Edit
@@ -41,7 +41,7 @@
                      </div>
                   </div>
                </div>-->
-            </div>
+           </div>
          </div>
       </div>
    </div>

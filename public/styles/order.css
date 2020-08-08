@@ -16,13 +16,37 @@ body{
 
 /* Making the product list responsive */
 
-@media (max-width: 600px){
+@media (max-width: 400px){
 
-    .product-list-vertical li{
-        max-width:265px;
+    .product-list-vertical{
+        max-width:100%;
         margin-left: auto;
         margin-right: auto;
+        padding: 0;
     }
+   .card{
+       margin: 0 !important;
+       margin-top: 0 !important;
+   }
+
+
+}
+
+
+@media (max-width: 600px){
+
+    .product-list-vertical{
+        max-width:100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+        padding-top: 20px;
+    }
+    .card{
+        margin: 0 !important;
+        margin-top: 30px !important;
+    }
+  
 
 
 }
@@ -67,10 +91,9 @@ var {
 .media img {
     margin-right: 1rem;
 }
-.img-sm {
+img {
     width: 90px;
-    max-height: 75px;
-    object-fit: cover;
+    height: 100px;
 }
 .card{
     margin: 40px;

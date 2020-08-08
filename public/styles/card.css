@@ -138,3 +138,10 @@ img{
   text-align: center;
   font-size: 50px;
 }
+
+.btn-primary{
+  background-color: #0578a5;
+}
+.btn-primary:hover{
+  background-color:  #034e6b;
+}

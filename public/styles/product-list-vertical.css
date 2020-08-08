@@ -111,7 +111,7 @@
 
 .product-list-vertical .product-details button{
     border-radius: 2px;
-    background-color:  #87bae1;
+    background-color:  #0578a5;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
     border: 0;
     color: #ffffff;
@@ -141,20 +141,42 @@
 
 
 .in_total {
-    float: right !important;
-    width: 25%; 
-   
-   
- 
-    
-
+    float: center !important;
+    width: 100%; 
+    display: inline-flex;
 
 }
-.in_total p{
-    font-size: 28px !important;
+#sum {
+    font-size: 25px !important;
     font-weight: bolder;
-    color:  #4e4e4e;
-    padding-top: 20px;
+    color:  rgb(39, 161, 76);;
+   /* padding-top: 20px;*/
+    width: 100%;
+  
+    text-align: center;
+}
+.in_total button{
+    float: right;
+    background-color:rgb(39, 161, 76);
+    width: 60%;
+    height: 40px;
+    border:rgb(39, 161, 76);
+    border-radius: 3px;
+    color: white;
+}
+.in_total .orderNow{
+    width: 100%;
+    height: 40px;
+
+}
+ #items {
+
+    width: 100%;
+    text-align: center;
+    padding-top: 3px;
+    border-right:medium;
+    border-right-color: grey;
+
 }
 
 /* Making the product list responsive */
@@ -180,4 +202,29 @@
         margin-top: 10px;
     }
 
+}
+.quantity{
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 600px){
+
+    .in_total{
+       display: grid;
+    }
+    #sum {
+        font-size: 20px !important;
+        padding-top: 15px;
+    }
+    .orderNow {
+        
+        margin-top: 15px;
+    }
+     .in_total button {
+        width: 100%;
+        border-right: none;
+        float: left;
+    
+    }
 }

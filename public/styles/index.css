@@ -1,7 +1,8 @@
  body {
   
     justify-content: center;
-    background-color: #e7eeff;
+    background-color: #dce9fd;
+    padding-top: 60px !important;
    
   
     }
@@ -110,7 +111,7 @@
     display: inline-block;
     padding: 8px 15px;
     box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
-    background: #1c87c9;
+    background: #0578a5;
     color: #fff;
     text-align: center;
     }
@@ -118,22 +119,25 @@
     margin-top: 10px;
     text-align: center;
     }
-    button {
+    #form-btn {
     width: 100%;
     padding: 10px 0;
     margin: 10px auto;
     border-radius: 5px; 
     border: none;
-    background: #1c87c9; 
+    background: #0578a5; 
     font-size: 14px;
     font-weight: 600;
     color: #fff;
     }
-    button:hover {
+    #form-btn:hover {
     background: #26a9e0;
     }
+    nav{
+      background-color: #034e6b;
+    }
 
-
+/*
 
     .topnav {
         overflow: hidden;
@@ -158,16 +162,18 @@
         background-color:	 #00394d;
         color: white;
       }
+      */
       #logout{
-        float: right;
         cursor: pointer;
         color: white;
       }
+      
 
       @media (max-width: 768px) {
         body {
             height:100vh;
         }
     }
+    
 
       

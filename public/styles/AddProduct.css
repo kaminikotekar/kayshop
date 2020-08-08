@@ -38,7 +38,7 @@ h3{
 
 
 body{
-    background-color:#e6e6ff !important;
+    background-color:#dce9fd !important;
 }
 
 
@@ -84,7 +84,7 @@ body{
   
 }
 .contact-form button{
-    background: #25274d;
+    background: #034e6b;
     color: #fff;
     font-weight: 600;
     width: 25%;
@@ -100,6 +100,7 @@ form{
 }
 button{
     float: left;
+    margin-top: 10px !important;
 }
 .submit{
     margin-top: 10px !important;
@@ -107,4 +108,9 @@ button{
 input[type=text]{
     width: 100%;
 }
-
+@media (max-width: 600px) {
+    button {
+        width: 120px !important;
+        
+    }
+}

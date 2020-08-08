@@ -1,5 +1,5 @@
 body{
-    background-color:#e6e6ff !important ;
+    background-color: #dce9fd !important ;
 }
 
 .product-list-vertical{
@@ -105,10 +105,10 @@ h2{
 
 }
 .order-heading{
-    background-color:#73c3f5;
+    background-color:#d45f59;
     line-height: 40px;
     font-size: 20px;
-    color:#00394d;
+    color:white;
 }
 .order-heading .id{
     font-size: 13px;

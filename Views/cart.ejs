@@ -26,7 +26,7 @@
 
 
                 <p class="product-description"><%= product.PId.description %> </p>
-                <h5> Quantity:  <%=product.quantity %></p>
+                <p class="quantity"> Quantity:  <%=product.quantity %></p>
                 <button>Buy Now!</button>
                 <button type ="button" class="btn-danger">
                     <input type="hidden" value="<%= product.PId._id %>" >
@@ -40,9 +40,9 @@
         <% } %>
       <li class="total">
           <div class="in_total">
-          <p style="font-size: 18px !important;">Items:<%= cart.items.length %></p>
-          <p> Total = $<%= cart.Total %></p>
-          <button id = "order" >Proceed to Pay</button>
+          <p id ="items" style="font-size: 18px !important;">Items:&nbsp;<%= cart.items.length %></p>
+          <p id="sum"> Total = $<%= cart.Total %></p>
+          <div class="orderNow"><button id = "order" >Order Now</button></div>
         </div>
       </li>  
 
